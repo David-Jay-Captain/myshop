@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | Doriana Tech Store</title>
+
+  <!-- Google Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #000428, #004e92);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .login-container {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+      width: 380px;
+      padding: 40px 30px;
+      text-align: center;
+    }
+
+    .login-container h1 {
+      color: #004e92;
+      margin-bottom: 25px;
+    }
+
+    .login-container .input-group {
+      text-align: left;
+      margin-bottom: 20px;
+    }
+
+    .login-container label {
+      font-weight: 500;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .login-container input {
+      width: 100%;
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+      transition: border-color 0.3s;
+    }
+
+    .login-container input:focus {
+      border-color: #004e92;
+      outline: none;
+    }
+
+    .login-container button {
+      width: 100%;
+      background-color: #00b4d8;
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background 0.3s;
+    }
+
+    .login-container button:hover {
+      background-color: #0077b6;
+    }
+
+    .login-container p {
+      margin-top: 20px;
+      font-size: 0.9rem;
+    }
+
+    .login-container a {
+      color: #004e92;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .login-container a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-container">
+    <h1><i class="fa-solid fa-microchip"></i> Doriana Tech Store</h1>
+    <h2>Login to Continue</h2>
+
+    <form id="loginForm">
+      <div class="input-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" placeholder="Enter your username" required>
+      </div>
+
+      <div class="input-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Enter your password" required>
+      </div>
+
+      <button type="submit">Login</button>
+    </form>
+
+    <p>Don’t have an account? <a href="#">Register</a></p>
+  </div>
+
+  <script>
+    // Handle login form submission
+    const form = document.getElementById('loginForm');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault(); // prevent actual form submission
+
+      const username = document.getElementById('username').value.trim();
+      const password = document.getElementById('password').value.trim();
+
+      if (username === "" || password === "") {
+        alert("Please fill in both fields.");
+        return;
+      }
+
+      // For demo purposes, accept any input and redirect
+      alert("Login successful! Redirecting to products...");
+      window.location.href = "products.html"; // Redirect to products page
+    });
+  </script>
+</body>
+</html>

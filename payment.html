@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment | Doriana Tech Store</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: #f4f6f8;
+      color: #1e1e1e;
+    }
+
+    header {
+      background-color: #0a0a0a;
+      color: white;
+      padding: 15px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      color: #00b4d8;
+      font-size: 1.6rem;
+    }
+
+    main {
+      max-width: 600px;
+      margin: 60px auto;
+      background-color: white;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      font-size: 1.8rem;
+      color: #0a0a0a;
+    }
+
+    form label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    form input, form select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+
+    .amount-box {
+      background-color: #e3f2fd;
+      padding: 15px;
+      border-left: 5px solid #00b4d8;
+      margin-bottom: 25px;
+      font-weight: 600;
+      color: #0077b6;
+      text-align: center;
+      font-size: 1.1rem;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #00b4d8;
+      color: white;
+      font-size: 1rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #0077b6;
+    }
+
+    .success-message {
+      text-align: center;
+      color: green;
+      font-weight: 600;
+      margin-top: 15px;
+    }
+
+    footer {
+      background-color: #0a0a0a;
+      color: white;
+      text-align: center;
+      padding: 25px;
+      margin-top: 80px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1><i class="fa-solid fa-microchip"></i> Doriana Tech Store</h1>
+  </header>
+
+  <main>
+    <h2>Payment Details</h2>
+
+    <div class="amount-box">
+      Total Amount to Pay: <span id="total-amount">KSh 0</span>
+    </div>
+
+    <form id="payment-form">
+      <label for="fullname">Full Name</label>
+      <input type="text" id="fullname" required placeholder="Enter your full name">
+
+      <label for="email">Email Address</label>
+      <input type="email" id="email" required placeholder="Enter your email">
+
+      <label for="address">Home Address</label>
+      <input type="text" id="address" required placeholder="Enter your home address">
+
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" required placeholder="Enter your phone number">
+
+      <label for="payment">Payment Option</label>
+      <select id="payment" required>
+        <option value="">-- Select Payment Method --</option>
+        <option value="mpesa">M-Pesa</option>
+        <option value="ebanking">E-Banking</option>
+        <option value="paypal">PayPal</option>
+        <option value="creditcard">Credit Card</option>
+        <option value="debitcard">Debit Card</option>
+      </select>
+
+      <button type="submit">Confirm Payment</button>
+    </form>
+
+    <p id="success" class="success-message" style="display: none;">Payment Successful! Redirecting to Receipt...</p>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Doriana Tech Store | All Rights Reserved</p>
+  </footer>
+
+  <script>
+    // Retrieve total amount from localStorage
+    const totalAmount = localStorage.getItem("totalAmount") || 0;
+    document.getElementById("total-amount").textContent = "KSh " + parseInt(totalAmount).toLocaleString();
+
+    // Handle payment form submission
+    const form = document.getElementById("payment-form");
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const fullname = document.getElementById("fullname").value;
+      const email = document.getElementById("email").value;
+      const address = document.getElementById("address").value;
+      const phone = document.getElementById("phone").value;
+      const payment = document.getElementById("payment").value;
+
+      if (!fullname || !email || !address || !phone || !payment) {
+        alert("Please fill in all fields.");
+        return;
+      }
+
+      // Save order details to localStorage for receipt page
+      const orderDetails = {
+        fullname,
+        email,
+        address,
+        phone,
+        payment,
+        total: parseInt(totalAmount)
+      };
+      localStorage.setItem("orderDetails", JSON.stringify(orderDetails));
+
+      // Show success message and redirect
+      document.getElementById("success").style.display = "block";
+      setTimeout(() => {
+        window.location.href = "receipt.html";
+      }, 2500);
+    });
+  </script>
+</body>
+</html>

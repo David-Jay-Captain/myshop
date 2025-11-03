@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Receipt | Doriana Tech Store</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: #f4f6f8;
+      color: #1e1e1e;
+    }
+
+    header {
+      background-color: #0a0a0a;
+      color: white;
+      padding: 15px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      font-size: 1.6rem;
+      color: #00b4d8;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 60px auto;
+      background-color: white;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 1.8rem;
+      color: #0a0a0a;
+    }
+
+    .section {
+      margin-bottom: 30px;
+    }
+
+    .section h3 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      color: #0077b6;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+
+    th, td {
+      padding: 12px;
+      border-bottom: 1px solid #ddd;
+      text-align: left;
+    }
+
+    th {
+      background-color: #00b4d8;
+      color: white;
+    }
+
+    td img {
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+
+    .total {
+      text-align: right;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #0077b6;
+      margin-top: 15px;
+    }
+
+    .shipping {
+      background-color: #e3f2fd;
+      padding: 15px;
+      border-left: 5px solid #00b4d8;
+      margin-top: 30px;
+      font-size: 1rem;
+      font-weight: 500;
+    }
+
+    .download-btn {
+      display: block;
+      margin: 30px auto 0 auto;
+      background-color: #00b4d8;
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      font-size: 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .download-btn:hover {
+      background-color: #0077b6;
+    }
+
+    footer {
+      background-color: #0a0a0a;
+      color: white;
+      text-align: center;
+      padding: 25px;
+      margin-top: 80px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1><i class="fa-solid fa-microchip"></i> Doriana Tech Store</h1>
+  </header>
+
+  <main id="receipt-content">
+    <h2>Payment Receipt</h2>
+
+    <!-- Customer Details -->
+    <div class="section">
+      <h3>Customer Details</h3>
+      <p><strong>Full Name:</strong> <span id="cust-name"></span></p>
+      <p><strong>Email:</strong> <span id="cust-email"></span></p>
+      <p><strong>Address:</strong> <span id="cust-address"></span></p>
+      <p><strong>Phone:</strong> <span id="cust-phone"></span></p>
+      <p><strong>Payment Method:</strong> <span id="cust-payment"></span></p>
+    </div>
+
+    <!-- Purchased Items -->
+    <div class="section">
+      <h3>Purchased Items</h3>
+      <table id="items-table">
+        <thead>
+          <tr>
+            <th>Image</th>
+            <th>Item</th>
+            <th>Quantity</th>
+            <th>Price (KSh)</th>
+            <th>Subtotal (KSh)</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <p class="total">Total Amount: <span id="total-amount"></span></p>
+    </div>
+
+    <!-- Shipping Info -->
+    <div class="shipping">
+      <p>📦 <strong>Shipping Info:</strong> Your order will be shipped within <strong>72 hours</strong> of payment. Expect delivery updates via your email or phone number provided.</p>
+    </div>
+
+    <button class="download-btn" onclick="downloadReceipt()">Download Receipt</button>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Doriana Tech Store | All Rights Reserved</p>
+  </footer>
+
+  <script>
+    // Load customer details
+    const order = JSON.parse(localStorage.getItem("orderDetails")) || {};
+    document.getElementById("cust-name").textContent = order.fullname || "-";
+    document.getElementById("cust-email").textContent = order.email || "-";
+    document.getElementById("cust-address").textContent = order.address || "-";
+    document.getElementById("cust-phone").textContent = order.phone || "-";
+    document.getElementById("cust-payment").textContent = order.payment || "-";
+
+    // Load purchased items
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const tbody = document.querySelector("#items-table tbody");
+    let total = 0;
+
+    if (cart.length > 0) {
+      cart.forEach(item => {
+        const subtotal = item.price * item.quantity;
+        total += subtotal;
+
+        const row = document.createElement("tr");
+        row.innerHTML = `
+          <td><img src="${item.img}" alt="${item.name}"></td>
+          <td>${item.name}</td>
+          <td>${item.quantity}</td>
+          <td>${item.price.toLocaleString()}</td>
+          <td>${subtotal.toLocaleString()}</td>
+        `;
+        tbody.appendChild(row);
+      });
+    } else {
+      tbody.innerHTML = `<tr><td colspan="5" style="text-align:center;">No items found in your cart.</td></tr>`;
+    }
+
+    document.getElementById("total-amount").textContent = "KSh " + total.toLocaleString();
+
+    // Download or print receipt
+    function downloadReceipt() {
+      window.print();
+    }
+  </script>
+</body>
+</html>

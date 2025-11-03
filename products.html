@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products | Doriana Tech Store</title>
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: #f4f7fb;
+      color: #1e1e1e;
+    }
+
+    /* Header */
+    header {
+      background-color: #0a0a0a;
+      color: white;
+      padding: 15px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header h1 {
+      font-size: 1.6rem;
+      color: #00b4d8;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #00b4d8;
+    }
+
+    .cart-icon {
+      font-size: 1.4rem;
+      cursor: pointer;
+      color: white;
+      position: relative;
+    }
+
+    .cart-count {
+      position: absolute;
+      top: -8px;
+      right: -10px;
+      background: #00b4d8;
+      color: white;
+      font-size: 0.8rem;
+      border-radius: 50%;
+      padding: 2px 6px;
+    }
+
+    /* Product Section */
+    .products {
+      padding: 60px 80px;
+      text-align: center;
+    }
+
+    .products h2 {
+      font-size: 2rem;
+      margin-bottom: 40px;
+      color: #0a0a0a;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 30px;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.3s;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .product-info {
+      padding: 15px;
+      text-align: left;
+    }
+
+    .product-info h3 {
+      font-size: 1.2rem;
+      margin-bottom: 8px;
+    }
+
+    .product-info p {
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    .price {
+      color: #0077b6;
+      font-weight: 600;
+      margin-top: 10px;
+    }
+
+    .product-info button {
+      margin-top: 12px;
+      background-color: #00b4d8;
+      border: none;
+      color: white;
+      padding: 8px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: background 0.3s;
+    }
+
+    .product-info button:hover {
+      background-color: #0077b6;
+    }
+
+    footer {
+      background-color: #0a0a0a;
+      color: white;
+      text-align: center;
+      padding: 30px;
+      margin-top: 60px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header>
+    <h1><i class="fa-solid fa-microchip"></i> Doriana Tech Store</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="cart.html">Cart</a></li>
+        <li><a href="payment.html">Payment</a></li>
+        <li><a href="receipt.html">Receipt</a></li>
+        <li><a href="aboutus.html">About Us</a></li>
+        <li><a href="contactus.html">Contact Us</a></li>
+      </ul>
+    </nav>
+    <div class="cart-icon" onclick="window.location.href='cart.html'">
+      <i class="fa-solid fa-cart-shopping"></i>
+      <span id="cart-count" class="cart-count">0</span>
+    </div>
+  </header>
+
+  <!-- Product Section -->
+  <section class="products">
+    <h2>Available Tech Products</h2>
+    <div class="product-grid" id="product-list">
+      <!-- Products will be loaded dynamically via JS -->
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Doriana Tech Store | All Rights Reserved</p>
+  </footer>
+
+  <script>
+    // Product list
+    const products = [
+      {
+        id: 1,
+        name: "HP Spectre x360",
+        specs: "Intel Core i7, 16GB RAM, 512GB SSD",
+        price: 189999,
+        img: "https://images.unsplash.com/photo-1593642532973-d31b6557fa68"
+      },
+      {
+        id: 2,
+        name: "Apple MacBook Air M2",
+        specs: "M2 Chip, 8GB RAM, 256GB SSD",
+        price: 199999,
+        img: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8"
+      },
+      {
+        id: 3,
+        name: "iPhone 14 Pro",
+        specs: "256GB Storage, 48MP Camera, A16 Bionic",
+        price: 174999,
+        img: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9"
+      },
+      {
+        id: 4,
+        name: "Sony WH-1000XM5",
+        specs: "Wireless Noise Cancelling Headphones",
+        price: 59999,
+        img: "https://www.mascomintl.com/themes/images/mascom/Sony%20WH-1000XM5%20Blue%20Mascom.webp"
+      },
+      {
+        id: 5,
+        name: "ASUS ROG Strix",
+        specs: "AMD Ryzen 9, RTX 4080, 32GB RAM",
+        price: 239999,
+        img: "https://images.unsplash.com/photo-1593642532973-d31b6557fa68"
+      },
+      {
+        id: 6,
+        name: "Samsung Galaxy S23 Ultra",
+        specs: "512GB Storage, 200MP Camera, S Pen",
+        price: 158999,
+        img: "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcT7n6HZgIOPm_DTZkHxgbzzXUFH5s5HVe4adTpsGhnjnNhUL_h5Kwp09V3Vpy836cnQnSvUjk8ApjI7LYYOAoKvT1PaXhmISsnlpBrgpxcmLkw7wCibVGGYDf93h5EwGbdFRQ&usqp=CAc"
+      }
+      
+      
+    ];
+
+    const productList = document.getElementById("product-list");
+    const cartCount = document.getElementById("cart-count");
+
+    // Load products dynamically
+    products.forEach(prod => {
+      const card = document.createElement("div");
+      card.classList.add("product-card");
+      card.innerHTML = `
+        <img src="${prod.img}" alt="${prod.name}">
+        <div class="product-info">
+          <h3>${prod.name}</h3>
+          <p>${prod.specs}</p>
+          <p class="price">KSh ${prod.price.toLocaleString()}</p>
+          <button onclick="addToCart(${prod.id})">Add to Cart</button>
+        </div>
+      `;
+      productList.appendChild(card);
+    });
+
+    // Load existing cart count
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    updateCartCount();
+
+    function addToCart(id) {
+      const product = products.find(p => p.id === id);
+      const existing = cart.find(item => item.id === id);
+
+      if (existing) {
+        existing.quantity += 1;
+      } else {
+        cart.push({ ...product, quantity: 1 });
+      }
+
+      localStorage.setItem("cart", JSON.stringify(cart));
+      updateCartCount();
+      alert(`${product.name} added to cart!`);
+    }
+
+    function updateCartCount() {
+      let totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+      cartCount.textContent = totalItems;
+    }
+  </script>
+</body>
+</html>

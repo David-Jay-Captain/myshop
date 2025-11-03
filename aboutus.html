@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us | Doriana Tech Store</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: #f4f6f8;
+      color: #1e1e1e;
+    }
+
+    header {
+      background-color: #0a0a0a;
+      color: white;
+      padding: 15px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      font-size: 1.6rem;
+      color: #00b4d8;
+    }
+
+    nav a {
+      color: white;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #00b4d8;
+    }
+
+    .about-section {
+      max-width: 1000px;
+      margin: 60px auto;
+      background-color: white;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #0077b6;
+    }
+
+    .about-content {
+      line-height: 1.8;
+      font-size: 1rem;
+    }
+
+    .highlight {
+      color: #0077b6;
+      font-weight: 600;
+    }
+
+    .mission, .vision {
+      margin-top: 25px;
+      padding: 15px;
+      border-left: 5px solid #00b4d8;
+      background-color: #e3f2fd;
+    }
+
+    .team {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .member {
+      background-color: #fff;
+      width: 260px;
+      text-align: center;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+    .member:hover {
+      transform: translateY(-5px);
+    }
+
+    .member img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 15px;
+    }
+
+    .member h4 {
+      color: #0077b6;
+      margin-bottom: 5px;
+    }
+
+    .contact-section {
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    .contact-section h3 {
+      color: #0077b6;
+      margin-bottom: 10px;
+    }
+
+    .contact-section p {
+      margin: 5px 0;
+    }
+
+    .social-icons a {
+      color: #00b4d8;
+      font-size: 1.4rem;
+      margin: 0 10px;
+      transition: color 0.3s;
+    }
+
+    .social-icons a:hover {
+      color: #0077b6;
+    }
+
+    footer {
+      background-color: #0a0a0a;
+      color: white;
+      text-align: center;
+      padding: 25px;
+      margin-top: 80px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1><i class="fa-solid fa-microchip"></i> Doriana Tech Store</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="cart.html">Cart</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <section class="about-section">
+    <h2>About Doriana Tech Store</h2>
+    <div class="about-content">
+      <p>
+        Welcome to <span class="highlight">Doriana Tech Store</span> — your trusted online destination for high-quality tech products and accessories in <span class="highlight">Kenya</span>. 
+        We’re passionate about connecting people with the latest innovations, from laptops and smartphones to gaming gear and smart home devices.
+      </p>
+
+      <div class="mission">
+        <h3>Our Mission</h3>
+        <p>To make technology accessible and affordable for everyone across Kenya by providing quality tech solutions, reliable service, and fast delivery.</p>
+      </div>
+
+      <div class="vision">
+        <h3>Our Vision</h3>
+        <p>To be Kenya’s most trusted and customer-friendly tech store, driving digital growth and empowering innovation across Africa.</p>
+      </div>
+
+      <h3 style="margin-top: 30px;">Our Team</h3>
+      <div class="team">
+        <div class="member">
+         
+          <h4>David Nyarango</h4>
+          <p>Founder & CEO</p>
+        </div>
+
+        <div class="member">
+         
+          <h4>Kwamboka D.</h4>
+          <p>Operations Manager</p>
+        </div>
+
+        <div class="member">
+         
+          <h4>Kevin Nyatichi</h4>
+          <p>Customer Support</p>
+        </div>
+      </div>
+
+      <div class="contact-section">
+        <h3>Contact Us</h3>
+        <p><i class="fa-solid fa-location-dot"></i> Nairobi, Kenya</p>
+        <p><i class="fa-solid fa-envelope"></i> info@dorianatech.co.ke</p>
+        <p><i class="fa-solid fa-phone"></i> +254 769560317</p>
+
+        <div class="social-icons">
+          <a href="#"><i class="fa-brands fa-facebook"></i></a>
+          <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Doriana Tech Store | Empowering Kenya through Technology</p>
+  </footer>
+</body>
+</html>

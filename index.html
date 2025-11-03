@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Doriana Tech Store | Home</title>
+
+  <!-- Google Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: #f5f7fa;
+      color: #1e1e1e;
+    }
+
+    /* Navbar */
+    header {
+      background-color: #0a0a0a;
+      color: white;
+      padding: 15px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header h1 {
+      font-size: 1.6rem;
+      color: #00b4d8;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #00b4d8;
+    }
+
+    .cart-icon {
+      font-size: 1.4rem;
+      cursor: pointer;
+      color: white;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(to right, #000428, #004e92);
+      color: white;
+      text-align: center;
+      padding: 120px 20px;
+    }
+
+    .hero h2 {
+      font-size: 2.8rem;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 25px;
+    }
+
+    .hero button {
+      background-color: #00b4d8;
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .hero button:hover {
+      background-color: #0077b6;
+    }
+
+    /* Featured Products */
+    .products {
+      padding: 60px 80px;
+      text-align: center;
+    }
+
+    .products h2 {
+      font-size: 2rem;
+      margin-bottom: 30px;
+      color: #0a0a0a;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.3s;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .product-info {
+      padding: 15px;
+      text-align: left;
+    }
+
+    .product-info h3 {
+      font-size: 1.1rem;
+      margin-bottom: 5px;
+    }
+
+    .product-info p {
+      color: #555;
+      font-size: 0.9rem;
+    }
+
+    .product-info .price {
+      color: #0077b6;
+      font-weight: 600;
+      margin-top: 5px;
+    }
+
+    .product-info button {
+      margin-top: 10px;
+      background-color: #00b4d8;
+      border: none;
+      color: white;
+      padding: 8px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+
+    .product-info button:hover {
+      background-color: #0077b6;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #0a0a0a;
+      color: white;
+      text-align: center;
+      padding: 30px;
+      margin-top: 60px;
+    }
+
+    footer p {
+      font-size: 0.9rem;
+      color: #ddd;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        padding: 15px 25px;
+      }
+
+      .hero h2 {
+        font-size: 2rem;
+      }
+
+      .products {
+        padding: 40px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <h1><i class="fa-solid fa-microchip"></i> Doriana Tech Store</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="product.html">Products</a></li>
+        <li><a href="cart.html">Cart</a></li>
+        <li><a href="payment.html">Payment</a> </li>
+        <li><a href="receipt.html">Receipt</a></li>
+        <li><a href="aboutus.html">About Us</a></li>
+        <li><a href="contactus.html">Contact Us</a></li>
+      </ul>
+    </nav>
+    <i class="fa-solid fa-cart-shopping cart-icon"></i>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h2>Empowering Your Digital World</h2>
+    <p>Shop the latest laptops, smartphones, and accessories at unbeatable prices.</p>
+    <button>Shop Now</button>
+  </section>
+
+  <!-- Featured Products -->
+  <section class="products">
+    <h2>Featured Products</h2>
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8" alt="Laptop">
+        <div class="product-info">
+          <h3>HP Spectre x360</h3>
+          <p>Powerful, sleek, and built for performance.</p>
+          <p class="price">$1,299</p>
+          <button>Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9" alt="Smartphone">
+        <div class="product-info">
+          <h3>iPhone 14 Pro</h3>
+          <p>Experience the next generation of Apple innovation.</p>
+          <p class="price">$999</p>
+          <button>Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1587202372775-e229f172b9d4" alt="Headphones">
+        <div class="product-info">
+          <h3>Sony WH-1000XM5</h3>
+          <p>Industry-leading noise cancellation headphones.</p>
+          <p class="price">$349</p>
+          <button>Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1593642532973-d31b6557fa68" alt="Gaming Laptop">
+        <div class="product-info">
+          <h3>ASUS ROG Strix</h3>
+          <p>Dominate every game with cutting-edge performance.</p>
+          <p class="price">$1,599</p>
+          <button>Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Doriana Tech Store | All Rights Reserved</p>
+  </footer>
+</body>
+</html>
